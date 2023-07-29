@@ -3,6 +3,7 @@ plugins {
     id("io.micronaut.application") version "4.0.1"
     id("io.micronaut.test-resources") version "4.0.1"
 //    id("io.micronaut.aot") version "4.0.1"
+    id("com.diffplug.spotless")
 }
 
 version = "0.1"
@@ -35,13 +36,29 @@ dependencies {
 //    aotPlugins("io.micronaut.security:micronaut-security-aot:4.0.1")
 }
 
-
 application {
     mainClass.set("us.ordoacerb.hexmap.Application")
 }
 java {
-    sourceCompatibility = JavaVersion.toVersion("17")
-    targetCompatibility = JavaVersion.toVersion("17")
+    toolchain {
+        languageVersion.set(JavaLanguageVersion.of(17))
+    }
+}
+spotless {
+    java {
+        importOrder()
+        removeUnusedImports()
+        palantirJavaFormat()
+        formatAnnotations()
+        cleanthat()
+    }
+    kotlinGradle {
+        ktlint()
+    }
+    yaml {
+        target("**/*.yml", "**/*.yaml")
+        jackson()
+    }
 }
 
 graalvmNative.toolchainDetection.set(false)
@@ -66,6 +83,3 @@ micronaut {
 //        configurationProperties.put("micronaut.security.openid-configuration.enabled","false")
 //    }
 }
-
-
-

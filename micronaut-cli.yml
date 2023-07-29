@@ -1,6 +1,31 @@
-applicationType: default
-defaultPackage: us.ordoacerb.hexmap
-testFramework: junit
-sourceLanguage: java
-buildTool: gradle_kotlin
-features: [app-name, data, data-jdbc, gradle, http-client-test, java, java-application, jdbc-hikari, junit, liquibase, logback, micronaut-aot, micronaut-build, netty-server, postgres, properties, readme, security, security-annotations, security-oauth2, serialization-jackson, shade, test-resources, testcontainers]
+---
+applicationType: "default"
+defaultPackage: "us.ordoacerb.hexmap"
+testFramework: "junit"
+sourceLanguage: "java"
+buildTool: "gradle_kotlin"
+features:
+- "app-name"
+- "data"
+- "data-jdbc"
+- "gradle"
+- "http-client-test"
+- "java"
+- "java-application"
+- "jdbc-hikari"
+- "junit"
+- "liquibase"
+- "logback"
+- "micronaut-aot"
+- "micronaut-build"
+- "netty-server"
+- "postgres"
+- "properties"
+- "readme"
+- "security"
+- "security-annotations"
+- "security-oauth2"
+- "serialization-jackson"
+- "shade"
+- "test-resources"
+- "testcontainers"
