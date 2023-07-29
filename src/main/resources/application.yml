@@ -1,0 +1,14 @@
+micronaut:
+  application:
+    name: hexmap3
+  security:
+    authentication: cookie
+datasources:
+  default:
+    driver-class-name: org.postgresql.Driver
+    db-type: postgres
+    dialect: POSTGRES
+liquibase:
+  datasources:
+    default:
+      change-log: classpath:db/liquibase-changelog.xml

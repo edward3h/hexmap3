@@ -2,7 +2,7 @@ plugins {
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.micronaut.application") version "4.0.1"
     id("io.micronaut.test-resources") version "4.0.1"
-    id("io.micronaut.aot") version "4.0.1"
+//    id("io.micronaut.aot") version "4.0.1"
 }
 
 version = "0.1"
@@ -27,11 +27,12 @@ dependencies {
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
+    runtimeOnly("org.yaml:snakeyaml")
     testImplementation("io.micronaut:micronaut-http-client")
     testImplementation("org.testcontainers:junit-jupiter")
     testImplementation("org.testcontainers:postgresql")
     testImplementation("org.testcontainers:testcontainers")
-    aotPlugins("io.micronaut.security:micronaut-security-aot:4.0.1")
+//    aotPlugins("io.micronaut.security:micronaut-security-aot:4.0.1")
 }
 
 
@@ -51,19 +52,19 @@ micronaut {
         incremental(true)
         annotations("us.ordoacerb.hexmap.*")
     }
-    aot {
-    // Please review carefully the optimizations enabled below
-    // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
-        optimizeServiceLoading.set(false)
-        convertYamlToJava.set(false)
-        precomputeOperations.set(true)
-        cacheEnvironment.set(true)
-        optimizeClassLoading.set(true)
-        deduceEnvironment.set(true)
-        optimizeNetty.set(true)
-        configurationProperties.put("micronaut.security.jwks.enabled","false")
-        configurationProperties.put("micronaut.security.openid-configuration.enabled","false")
-    }
+//    aot {
+//    // Please review carefully the optimizations enabled below
+//    // Check https://micronaut-projects.github.io/micronaut-aot/latest/guide/ for more details
+//        optimizeServiceLoading.set(false)
+//        convertYamlToJava.set(false)
+//        precomputeOperations.set(true)
+//        cacheEnvironment.set(true)
+//        optimizeClassLoading.set(true)
+//        deduceEnvironment.set(true)
+//        optimizeNetty.set(true)
+//        configurationProperties.put("micronaut.security.jwks.enabled","false")
+//        configurationProperties.put("micronaut.security.openid-configuration.enabled","false")
+//    }
 }
 
 
