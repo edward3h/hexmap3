@@ -1,7 +1,5 @@
-pluginManagement {
-    plugins {
-        id("com.diffplug.spotless") version "6.20.0"
-    }
-}
+
 rootProject.name = "hexmap3"
+//includeBuild("buildSrc") // automatic
 include("server")
+include("views")

@@ -1,31 +1,27 @@
 plugins {
+    `java-convention`
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.micronaut.application") version "4.0.1"
     id("io.micronaut.test-resources") version "4.0.1"
 //    id("io.micronaut.aot") version "4.0.1"
-    id("com.diffplug.spotless")
 }
 
 version = "0.1"
 group = "us.ordoacerb.hexmap"
 
-repositories {
-    maven("https://s01.oss.sonatype.org/content/repositories/snapshots/") {
-        mavenContent { snapshotsOnly() }
-    }
-    mavenCentral()
-}
-
 dependencies {
     annotationProcessor("io.micronaut.data:micronaut-data-processor")
     annotationProcessor("io.micronaut.security:micronaut-security-annotations")
     annotationProcessor("io.micronaut.serde:micronaut-serde-processor")
+    implementation("io.micronaut:micronaut-http-client")
     implementation("io.micronaut.data:micronaut-data-jdbc")
     implementation("io.micronaut.liquibase:micronaut-liquibase")
     implementation("io.micronaut.security:micronaut-security")
     implementation("io.micronaut.security:micronaut-security-oauth2")
     implementation("io.micronaut.serde:micronaut-serde-jackson")
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
+    implementation("io.micronaut.reactor:micronaut-reactor")
+    implementation("io.micronaut:micronaut-jackson-databind")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.yaml:snakeyaml")
@@ -39,28 +35,6 @@ dependencies {
 application {
     mainClass.set("us.ordoacerb.hexmap.Application")
 }
-java {
-    toolchain {
-        languageVersion.set(JavaLanguageVersion.of(17))
-    }
-}
-spotless {
-    java {
-        importOrder()
-        removeUnusedImports()
-        palantirJavaFormat()
-        formatAnnotations()
-        cleanthat()
-    }
-    kotlinGradle {
-        ktlint()
-    }
-    yaml {
-        target("**/*.yml", "**/*.yaml")
-        jackson()
-    }
-}
-
 graalvmNative.toolchainDetection.set(false)
 micronaut {
     runtime("netty")
