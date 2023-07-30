@@ -10,7 +10,7 @@ repositories {
 
 dependencies {
     implementation("com.diffplug.spotless:spotless-plugin-gradle:6.20.0")
-    implementation("io.micronaut:micronaut-jackson-databind:4.0.1")
+    implementation("io.micronaut:micronaut-jackson-databind:4.0.2")
 }
 
 java {
