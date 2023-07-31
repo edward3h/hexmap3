@@ -3,14 +3,16 @@ micronaut:
   application:
     name: "hexmap3"
   security:
-    authentication: cookie
+    authentication: "cookie"
     intercept-url-map:
-      - pattern: /assets/**
-        httpMethod: GET
-        access: [isAnonymous()]
-      - pattern: /favicon.ico
-        httpMethod: GET
-        access: [isAnonymous()]
+    - pattern: "/assets/**"
+      httpMethod: "GET"
+      access:
+      - "isAnonymous()"
+    - pattern: "/favicon.ico"
+      httpMethod: "GET"
+      access:
+      - "isAnonymous()"
     token:
       jwt:
         cookie:
@@ -18,29 +20,23 @@ micronaut:
         signatures:
           secret:
             generator:
-              secret: ${JWT_SECRET:MTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTE=}
+              secret: "${JWT_SECRET:MTExMTExMTExMTExMTExMTExMTExMTExMTExMTExMTE=}"
               base64: true
-              jws-algorithm: HS256
+              jws-algorithm: "HS256"
     oauth2:
       clients:
-#        google:
-#          client-id: ${OAUTH_CLIENT_ID:test_client_id}
-#          client-secret: ${OAUTH_CLIENT_SECRET:test_client_secret}
-#          openid:
-#            issuer: ${OAUTH_ISSUER:test_google_issuer}
         discord:
-          client-id: ${DISCORD_CLIENT_ID:test_discord_id}
-          client-secret: ${DISCORD_CLIENT_SECRET:test_discord_secret}
+          client-id: "${DISCORD_CLIENT_ID:test_discord_id}"
+          client-secret: "${DISCORD_CLIENT_SECRET:test_discord_secret}"
           scopes:
-            - identify
-            - guilds
-            - email
+          - "identify"
+          - "guilds"
+          - "email"
           authorization:
-            url: 'https://discord.com/api/oauth2/authorize'
+            url: "https://discord.com/api/oauth2/authorize"
           token:
-            url: 'https://discord.com/api/oauth2/token'
-            auth-method: CLIENT_SECRET_POST
-
+            url: "https://discord.com/api/oauth2/token"
+            auth-method: "CLIENT_SECRET_POST"
     endpoints:
       logout:
         enabled: true
@@ -53,12 +49,12 @@ micronaut:
     static-resources:
       assets:
         paths:
-          - classpath:assets
-          - "classpath:META-INF/resources/webjars"
+        - "classpath:assets"
+        - "classpath:META-INF/resources/webjars"
         mapping: "/assets/**"
       favicon:
         paths:
-          - classpath:assets/favicon.ico
+        - "classpath:assets/favicon.ico"
         mapping: "/favicon.ico"
 datasources:
   default:

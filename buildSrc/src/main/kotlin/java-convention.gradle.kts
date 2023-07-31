@@ -1,3 +1,4 @@
+import com.diffplug.spotless.extra.wtp.EclipseWtpFormatterStep
 import org.gradle.jvm.toolchain.JavaLanguageVersion
 import org.gradle.kotlin.dsl.version
 
@@ -32,5 +33,9 @@ spotless {
     yaml {
         target("**/*.yml", "**/*.yaml")
         jackson()
+    }
+    format("xml") {
+        target("**/*.xml")
+        eclipseWtp(EclipseWtpFormatterStep.XML)
     }
 }

@@ -7,7 +7,6 @@ import io.micronaut.http.bind.binders.TypedRequestArgumentBinder;
 import io.micronaut.security.authentication.Authentication;
 import io.micronaut.security.filters.SecurityFilter;
 import jakarta.inject.Singleton;
-
 import java.util.Optional;
 
 @Singleton

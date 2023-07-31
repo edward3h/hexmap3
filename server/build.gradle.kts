@@ -22,6 +22,7 @@ dependencies {
     implementation("io.micronaut.sql:micronaut-jdbc-hikari")
     implementation("io.micronaut.reactor:micronaut-reactor")
     implementation("io.micronaut:micronaut-jackson-databind")
+    implementation("com.github.ksuid:ksuid:1.1.2")
     runtimeOnly("ch.qos.logback:logback-classic")
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.yaml:snakeyaml")

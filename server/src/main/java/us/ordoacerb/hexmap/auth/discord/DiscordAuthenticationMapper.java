@@ -7,13 +7,12 @@ import io.micronaut.security.oauth2.endpoint.token.response.OauthAuthenticationM
 import io.micronaut.security.oauth2.endpoint.token.response.TokenResponse;
 import jakarta.inject.Named;
 import jakarta.inject.Singleton;
+import java.util.Map;
+import java.util.stream.Collectors;
 import org.reactivestreams.Publisher;
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 import us.ordoacerb.hexmap.auth.UserService;
-
-import java.util.Map;
-import java.util.stream.Collectors;
 
 @Named("discord")
 @Singleton
@@ -68,4 +67,3 @@ public class DiscordAuthenticationMapper implements OauthAuthenticationMapper {
         return "https://cdn.discordapp.com/avatars/%s/%s.png?size=128".formatted(user.id(), user.avatar());
     }
 }
-

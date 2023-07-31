@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+	xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+	<changeSet id="03" author="edward3h">
+		<createTable tableName="campaign"
+			remarks="A table to contain campaigns">
+			<column name="id" type="char(27)">
+				<constraints nullable="false" unique="true"
+					primaryKey="true" primaryKeyName="campaignPK" />
+			</column>
+			<column name="name" type="text">
+				<constraints nullable="false" />
+			</column>
+			<column name="created_at" type="timestamp"
+				defaultValueComputed="current_timestamp" />
+			<column name="updated_at" type="timestamp"
+				defaultValueComputed="current_timestamp on update current_timestamp" />
+		</createTable>
+		<createTable tableName="team">
+			<column name="id" type="char(27)">
+				<constraints nullable="false" unique="true"
+					primaryKey="true" />
+			</column>
+			<column name="name" type="text">
+				<constraints nullable="false" />
+			</column>
+			<column name="color" type="integer" defaultValue="0">
+				<constraints nullable="false" />
+			</column>
+		</createTable>
+		<createTable tableName="campaignUser">
+			<column name="campaign_id" type="char(27)">
+				<constraints referencedTableName="campaign"
+					referencedColumnNames="id" />
+			</column>
+			<column name="user_id" type="char(27)">
+				<constraints referencedTableName="user"
+					referencedColumnNames="id" />
+			</column>
+		</createTable>
+	</changeSet>
+</databaseChangeLog>
