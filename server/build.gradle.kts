@@ -2,7 +2,7 @@ plugins {
     `java-convention`
     id("com.github.johnrengelman.shadow") version "8.1.1"
     id("io.micronaut.application") version "4.0.1"
-    id("io.micronaut.test-resources") version "4.0.1"
+    id("io.micronaut.test-resources") version "4.0.2"
 //    id("io.micronaut.aot") version "4.0.1"
 }
 
