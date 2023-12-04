@@ -9,7 +9,7 @@ repositories {
 }
 
 dependencies {
-    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.21.0")
+    implementation("com.diffplug.spotless:spotless-plugin-gradle:6.23.3")
 }
 
 java {
